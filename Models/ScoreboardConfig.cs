@@ -11,5 +11,10 @@ namespace LedScoreboard.Models
         public int RefreshSeconds { get; set; } = 15; // rate at which APIs are called (board updates)
         public int RotationSeconds { get; set; } = 10; // rate at which the selected games will cycle across the board
         public string DisplayUrl { get; set; } = "http://localhost:5000/update"; // where data is sent to the Raspberry Pi
+        public string DataFolder { get; set; } = "scoreboard";
+        public string ScoreboardJsonFile { get; set; } = "scoreboard.json";
+        public string LogoFolder { get; set; } = "logos";
+       
+
     }
 }

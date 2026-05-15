@@ -8,13 +8,20 @@ namespace LedScoreboard
         private readonly ILogger<Worker> _logger;
         private readonly ScoreboardService _scoreboardService;
         private readonly ScoreboardConfig _config;
+        private readonly LogoDownloaderService _logoDownloaderService;
+        private readonly LogoProcessorService _logoProcessorService;
+        private readonly ScoreboardFileWriterService _scoreboardFileWriterService;
 
 
-        public Worker(ILogger<Worker> logger, ScoreboardService scoreboardService, ScoreboardConfig config)
+        public Worker(ILogger<Worker> logger, ScoreboardService scoreboardService, ScoreboardConfig config,
+            LogoDownloaderService logoDownloader, LogoProcessorService logoProcessorService, ScoreboardFileWriterService scoreboardFileWriterService)
         {
             _logger = logger;
             _scoreboardService = scoreboardService;
             _config = config;
+            _logoDownloaderService = logoDownloader;
+            _logoProcessorService = logoProcessorService;
+            _scoreboardFileWriterService = scoreboardFileWriterService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -26,8 +33,11 @@ namespace LedScoreboard
                 try
                 {
                     var update = await _scoreboardService.BuildUpdateAsync();
+                    await _logoDownloaderService.DownloadLogosAsync(update.Games);
+                    await _logoProcessorService.ProcessLogosAsync(update.Games);
+                    await _scoreboardFileWriterService.WriteAsync(update);
 
-                    foreach(var game in update.Games)
+                    foreach (var game in update.Games)
                     {
                         string statusText = string.IsNullOrWhiteSpace(game.Status.Clock)
                          ? game.Status.Period
@@ -50,6 +60,8 @@ namespace LedScoreboard
                 }
                 await Task.Delay(TimeSpan.FromSeconds(_config.RefreshSeconds), stoppingToken);
             }
+
+
         }
     }
 }

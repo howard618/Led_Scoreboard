@@ -9,6 +9,9 @@ var config = new ScoreboardConfig();
 builder.Services.AddSingleton(config);
 
 builder.Services.AddHttpClient<ISportsDataProvider, EspnSportsDataProvider>();
+builder.Services.AddHttpClient<LogoDownloaderService>();
+builder.Services.AddSingleton<LogoProcessorService>();
+builder.Services.AddSingleton<ScoreboardFileWriterService>();
 
 builder.Services.AddSingleton<ScoreboardService>();
 

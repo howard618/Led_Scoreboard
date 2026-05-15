@@ -82,6 +82,20 @@ namespace LedScoreboard.Services
 
                     JsonElement team = competitor.GetProperty("team");
 
+                    string teamCode = team.GetProperty("abbreviation").GetString() ?? "";
+
+                    string logoUrl = league switch
+                    {
+                        "NFL" => $"https://a.espncdn.com/i/teamlogos/nfl/500/{teamCode.ToLower()}.png",
+                        "MLB" => $"https://a.espncdn.com/i/teamlogos/mlb/500/{teamCode.ToLower()}.png",
+                        "NHL" => $"https://a.espncdn.com/i/teamlogos/nhl/500/{teamCode.ToLower()}.png",
+                        _ => ""
+                    };
+
+                  
+                    Console.WriteLine($"TEAM: {teamCode}");
+                    Console.WriteLine($"LOGO URL: {logoUrl}");
+
                     TeamState teamState = new TeamState
                     {
                         Code = team.GetProperty("abbreviation").GetString() ?? "",
@@ -89,7 +103,11 @@ namespace LedScoreboard.Services
                         Score = int.TryParse(
                             competitor.GetProperty("score").GetString(),
                             out int score
-                        ) ? score : 0
+                        ) ? score : 0,
+
+                        LogoUrl = logoUrl,
+
+                        LogoFile = $"/scoreboard/logos/{league.ToLower()}/{teamCode}.png"
                     };
 
                     if (homeAway == "home")
