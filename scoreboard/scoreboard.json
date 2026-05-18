@@ -3,68 +3,31 @@
   "Games": [
     {
       "League": "NFL",
-      "GameId": "nfl-401772988",
+      "GameId": "nfl-401872656",
       "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
-        "LogoFile": "scoreboard\\logos\\nfl\\NE.png",
-        "Code": "NE",
-        "Name": "New England Patriots",
-        "Score": 13,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nfl\\processed\\NE_16x16.png"
-      },
-      "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
-        "LogoFile": "scoreboard\\logos\\nfl\\SEA.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\SEA.png",
         "Code": "SEA",
         "Name": "Seattle Seahawks",
-        "Score": 29,
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nfl\\processed\\SEA_16x16.png"
-      },
-      "Status": {
-        "Period": "FINAL",
-        "Clock": "",
-        "State": "POST",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.2662148Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815335",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\PIT.png",
-        "Code": "PIT",
-        "Name": "Pittsburgh Pirates",
-        "Score": 7,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\PIT_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\SEA_20x20.png"
       },
       "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\COL.png",
-        "Code": "COL",
-        "Name": "Colorado Rockies",
-        "Score": 2,
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\NE.png",
+        "Code": "NE",
+        "Name": "New England Patriots",
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\COL_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\NE_20x20.png"
       },
       "Status": {
-        "Period": "FINAL",
+        "Period": "PRE",
         "Clock": "",
-        "State": "POST",
+        "State": "PRE",
         "DetailLine": "",
         "Balls": 0,
         "Strikes": 0,
@@ -73,35 +36,72 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3162477Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3080704Z"
     },
     {
-      "League": "MLB",
-      "GameId": "mlb-401815338",
+      "League": "NFL",
+      "GameId": "nfl-401872657",
       "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\CIN.png",
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\LAR.png",
+        "Code": "LAR",
+        "Name": "Los Angeles Rams",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\LAR_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\SF.png",
+        "Code": "SF",
+        "Name": "San Francisco 49ers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\SF_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3098215Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872925",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\CIN.png",
         "Code": "CIN",
-        "Name": "Cincinnati Reds",
-        "Score": 15,
+        "Name": "Cincinnati Bengals",
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\CIN_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\CIN_20x20.png"
       },
       "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\WSH.png",
-        "Code": "WSH",
-        "Name": "Washington Nationals",
-        "Score": 1,
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\TB.png",
+        "Code": "TB",
+        "Name": "Tampa Bay Buccaneers",
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\WSH_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\TB_20x20.png"
       },
       "Status": {
-        "Period": "FINAL",
+        "Period": "PRE",
         "Clock": "",
-        "State": "POST",
+        "State": "PRE",
         "DetailLine": "",
         "Balls": 0,
         "Strikes": 0,
@@ -110,35 +110,35 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3166857Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3104853Z"
     },
     {
-      "League": "MLB",
-      "GameId": "mlb-401815336",
+      "League": "NFL",
+      "GameId": "nfl-401872923",
       "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\NYM.png",
-        "Code": "NYM",
-        "Name": "New York Mets",
-        "Score": 9,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\NYM_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\DET.png",
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\DET.png",
         "Code": "DET",
-        "Name": "Detroit Tigers",
-        "Score": 4,
+        "Name": "Detroit Lions",
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\DET_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\DET_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\NO.png",
+        "Code": "NO",
+        "Name": "New Orleans Saints",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\NO_20x20.png"
       },
       "Status": {
-        "Period": "FINAL",
+        "Period": "PRE",
         "Clock": "",
-        "State": "POST",
+        "State": "PRE",
         "DetailLine": "",
         "Balls": 0,
         "Strikes": 0,
@@ -147,220 +147,775 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3170143Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3118523Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872924",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\TEN.png",
+        "Code": "TEN",
+        "Name": "Tennessee Titans",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\TEN_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\NYJ.png",
+        "Code": "NYJ",
+        "Name": "New York Jets",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\NYJ_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3128121Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872659",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\IND.png",
+        "Code": "IND",
+        "Name": "Indianapolis Colts",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\IND_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\BAL.png",
+        "Code": "BAL",
+        "Name": "Baltimore Ravens",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\BAL_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3134754Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872658",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\PIT.png",
+        "Code": "PIT",
+        "Name": "Pittsburgh Steelers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\PIT_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\ATL.png",
+        "Code": "ATL",
+        "Name": "Atlanta Falcons",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\ATL_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3140793Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872661",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\CAR.png",
+        "Code": "CAR",
+        "Name": "Carolina Panthers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\CAR_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\CHI.png",
+        "Code": "CHI",
+        "Name": "Chicago Bears",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\CHI_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3147069Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872922",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\JAX.png",
+        "Code": "JAX",
+        "Name": "Jacksonville Jaguars",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\JAX_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\CLE.png",
+        "Code": "CLE",
+        "Name": "Cleveland Browns",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\CLE_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3154513Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872660",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\HOU.png",
+        "Code": "HOU",
+        "Name": "Houston Texans",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\HOU_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\BUF.png",
+        "Code": "BUF",
+        "Name": "Buffalo Bills",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\BUF_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3160301Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872928",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\LV.png",
+        "Code": "LV",
+        "Name": "Las Vegas Raiders",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\LV_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\MIA.png",
+        "Code": "MIA",
+        "Name": "Miami Dolphins",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\MIA_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3170757Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872927",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\MIN.png",
+        "Code": "MIN",
+        "Name": "Minnesota Vikings",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\MIN_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\GB.png",
+        "Code": "GB",
+        "Name": "Green Bay Packers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\GB_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3178858Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872929",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\PHI.png",
+        "Code": "PHI",
+        "Name": "Philadelphia Eagles",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\PHI_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\WSH.png",
+        "Code": "WSH",
+        "Name": "Washington Commanders",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\WSH_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3186103Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872926",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\LAC.png",
+        "Code": "LAC",
+        "Name": "Los Angeles Chargers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\LAC_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\ARI.png",
+        "Code": "ARI",
+        "Name": "Arizona Cardinals",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\ARI_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3203396Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872930",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\NYG.png",
+        "Code": "NYG",
+        "Name": "New York Giants",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\NYG_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\DAL.png",
+        "Code": "DAL",
+        "Name": "Dallas Cowboys",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\DAL_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3216466Z"
+    },
+    {
+      "League": "NFL",
+      "GameId": "nfl-401872931",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\KC.png",
+        "Code": "KC",
+        "Name": "Kansas City Chiefs",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\KC_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png",
+        "LogoFile": "scoreboard\\newlogos\\nfl\\DEN.png",
+        "Code": "DEN",
+        "Name": "Denver Broncos",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nfl\\processed\\DEN_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3222895Z"
     },
     {
       "League": "MLB",
-      "GameId": "mlb-401815340",
+      "GameId": "mlb-401815390",
       "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\MIN.png",
-        "Code": "MIN",
-        "Name": "Minnesota Twins",
-        "Score": 9,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\MIN_16x16.png"
-      },
-      "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\MIA.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\MIA.png",
         "Code": "MIA",
         "Name": "Miami Marlins",
-        "Score": 1,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\MIA_16x16.png"
-      },
-      "Status": {
-        "Period": "FINAL",
-        "Clock": "",
-        "State": "POST",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.31733Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815341",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\MIL.png",
-        "Code": "MIL",
-        "Name": "Milwaukee Brewers",
-        "Score": 7,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\MIL_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\SD.png",
-        "Code": "SD",
-        "Name": "San Diego Padres",
-        "Score": 1,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\SD_16x16.png"
-      },
-      "Status": {
-        "Period": "FINAL",
-        "Clock": "",
-        "State": "POST",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3176904Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815342",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\HOU.png",
-        "Code": "HOU",
-        "Name": "Houston Astros",
-        "Score": 3,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\HOU_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\SEA.png",
-        "Code": "SEA",
-        "Name": "Seattle Mariners",
-        "Score": 8,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\SEA_16x16.png"
-      },
-      "Status": {
-        "Period": "FINAL",
-        "Clock": "",
-        "State": "POST",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3179337Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815344",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/ath.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\ATH.png",
-        "Code": "ATH",
-        "Name": "Athletics",
-        "Score": 4,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\ATH_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\STL.png",
-        "Code": "STL",
-        "Name": "St. Louis Cardinals",
-        "Score": 5,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\STL_16x16.png"
-      },
-      "Status": {
-        "Period": "FINAL",
-        "Clock": "",
-        "State": "POST",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3182044Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815337",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\BOS.png",
-        "Code": "BOS",
-        "Name": "Boston Red Sox",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\BOS_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\MIA_20x20.png"
       },
       "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\PHI.png",
-        "Code": "PHI",
-        "Name": "Philadelphia Phillies",
-        "Score": 0,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\PHI_16x16.png"
-      },
-      "Status": {
-        "Period": "INN 5",
-        "Clock": "",
-        "State": "IN",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3188073Z"
-    },
-    {
-      "League": "MLB",
-      "GameId": "mlb-401815334",
-      "Home": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\ATL.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\ATL.png",
         "Code": "ATL",
         "Name": "Atlanta Braves",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\ATL_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\ATL_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3750139Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815391",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\TB.png",
+        "Code": "TB",
+        "Name": "Tampa Bay Rays",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\TB_20x20.png"
       },
       "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\BAL.png",
+        "Code": "BAL",
+        "Name": "Baltimore Orioles",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\BAL_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3759061Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815392",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\PHI.png",
+        "Code": "PHI",
+        "Name": "Philadelphia Phillies",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\PHI_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\CIN.png",
+        "Code": "CIN",
+        "Name": "Cincinnati Reds",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\CIN_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.376446Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815393",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\DET.png",
+        "Code": "DET",
+        "Name": "Detroit Tigers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\DET_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\CLE.png",
+        "Code": "CLE",
+        "Name": "Cleveland Guardians",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\CLE_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3772887Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815394",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\WSH.png",
+        "Code": "WSH",
+        "Name": "Washington Nationals",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\WSH_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\NYM.png",
+        "Code": "NYM",
+        "Name": "New York Mets",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\NYM_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3780418Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815395",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\NYY.png",
+        "Code": "NYY",
+        "Name": "New York Yankees",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\NYY_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\TOR.png",
+        "Code": "TOR",
+        "Name": "Toronto Blue Jays",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\TOR_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.37838Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815396",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\KC.png",
+        "Code": "KC",
+        "Name": "Kansas City Royals",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\KC_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\BOS.png",
+        "Code": "BOS",
+        "Name": "Boston Red Sox",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\BOS_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3786087Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815397",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\MIN.png",
+        "Code": "MIN",
+        "Name": "Minnesota Twins",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\MIN_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\HOU.png",
+        "Code": "HOU",
+        "Name": "Houston Astros",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\HOU_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.378719Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815398",
+      "Home": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\CHC.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\CHC.png",
         "Code": "CHC",
         "Name": "Chicago Cubs",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\CHC_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\CHC_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\MIL.png",
+        "Code": "MIL",
+        "Name": "Milwaukee Brewers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\MIL_20x20.png"
       },
       "Status": {
-        "Period": "INN 3",
+        "Period": "PRE",
         "Clock": "",
-        "State": "IN",
+        "State": "PRE",
         "DetailLine": "",
         "Balls": 0,
         "Strikes": 0,
@@ -369,35 +924,109 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3191778Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3788508Z"
     },
     {
       "League": "MLB",
-      "GameId": "mlb-401815339",
+      "GameId": "mlb-401815399",
       "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\COL.png",
+        "Code": "COL",
+        "Name": "Colorado Rockies",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\COL_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\TEX.png",
+        "Code": "TEX",
+        "Name": "Texas Rangers",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\TEX_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3796765Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815400",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\LAA.png",
+        "Code": "LAA",
+        "Name": "Los Angeles Angels",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\LAA_20x20.png"
+      },
+      "Away": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/ath.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\ATH.png",
+        "Code": "ATH",
+        "Name": "Athletics",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\ATH_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.381018Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815401",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\SEA.png",
+        "Code": "SEA",
+        "Name": "Seattle Mariners",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\SEA_20x20.png"
+      },
+      "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\CHW.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\CHW.png",
         "Code": "CHW",
         "Name": "Chicago White Sox",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\CHW_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\KC.png",
-        "Code": "KC",
-        "Name": "Kansas City Royals",
-        "Score": 1,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\KC_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\CHW_20x20.png"
       },
       "Status": {
-        "Period": "INN 1",
+        "Period": "PRE",
         "Clock": "",
-        "State": "IN",
+        "State": "PRE",
         "DetailLine": "",
         "Balls": 0,
         "Strikes": 0,
@@ -406,30 +1035,67 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3195316Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3819442Z"
     },
     {
       "League": "MLB",
-      "GameId": "mlb-401815343",
+      "GameId": "mlb-401815402",
       "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\SD.png",
+        "Code": "SD",
+        "Name": "San Diego Padres",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\SD_20x20.png"
+      },
+      "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\LAD.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\LAD.png",
         "Code": "LAD",
         "Name": "Los Angeles Dodgers",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\LAD_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\LAD_20x20.png"
+      },
+      "Status": {
+        "Period": "PRE",
+        "Clock": "",
+        "State": "PRE",
+        "DetailLine": "",
+        "Balls": 0,
+        "Strikes": 0,
+        "Outs": 0,
+        "RunnerOnFirst": false,
+        "RunnerOnSecond": false,
+        "RunnerOnThird": false
+      },
+      "LastUpdatedUtc": "2026-05-18T20:31:55.3827287Z"
+    },
+    {
+      "League": "MLB",
+      "GameId": "mlb-401815403",
+      "Home": {
+        "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\ARI.png",
+        "Code": "ARI",
+        "Name": "Arizona Diamondbacks",
+        "Score": 0,
+        "HasPossession": false,
+        "IsWinner": false,
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\ARI_20x20.png"
       },
       "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png",
-        "LogoFile": "scoreboard\\logos\\mlb\\SF.png",
+        "LogoFile": "scoreboard\\newlogos\\mlb\\SF.png",
         "Code": "SF",
         "Name": "San Francisco Giants",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\mlb\\processed\\SF_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\mlb\\processed\\SF_20x20.png"
       },
       "Status": {
         "Period": "PRE",
@@ -443,67 +1109,30 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3203875Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.383398Z"
     },
     {
       "League": "NHL",
-      "GameId": "nhl-401871408",
+      "GameId": "nhl-401871410",
       "Home": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png",
-        "LogoFile": "scoreboard\\logos\\nhl\\BUF.png",
+        "LogoFile": "scoreboard\\newlogos\\nhl\\BUF.png",
         "Code": "BUF",
         "Name": "Buffalo Sabres",
-        "Score": 3,
+        "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nhl\\processed\\BUF_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nhl\\processed\\BUF_20x20.png"
       },
       "Away": {
         "LogoUrl": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png",
-        "LogoFile": "scoreboard\\logos\\nhl\\MTL.png",
+        "LogoFile": "scoreboard\\newlogos\\nhl\\MTL.png",
         "Code": "MTL",
         "Name": "Montreal Canadiens",
-        "Score": 2,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nhl\\processed\\MTL_16x16.png"
-      },
-      "Status": {
-        "Period": "1ST",
-        "Clock": "0:00",
-        "State": "IN",
-        "DetailLine": "",
-        "Balls": 0,
-        "Strikes": 0,
-        "Outs": 0,
-        "RunnerOnFirst": false,
-        "RunnerOnSecond": false,
-        "RunnerOnThird": false
-      },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3591645Z"
-    },
-    {
-      "League": "NHL",
-      "GameId": "nhl-401871428",
-      "Home": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png",
-        "LogoFile": "scoreboard\\logos\\nhl\\ANA.png",
-        "Code": "ANA",
-        "Name": "Anaheim Ducks",
         "Score": 0,
         "HasPossession": false,
         "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nhl\\processed\\ANA_16x16.png"
-      },
-      "Away": {
-        "LogoUrl": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png",
-        "LogoFile": "scoreboard\\logos\\nhl\\VGK.png",
-        "Code": "VGK",
-        "Name": "Vegas Golden Knights",
-        "Score": 0,
-        "HasPossession": false,
-        "IsWinner": false,
-        "ProcessedLogoFile": "scoreboard\\logos\\nhl\\processed\\VGK_16x16.png"
+        "ProcessedLogoFile": "scoreboard\\newlogos\\nhl\\processed\\MTL_20x20.png"
       },
       "Status": {
         "Period": "PRE",
@@ -517,8 +1146,8 @@
         "RunnerOnSecond": false,
         "RunnerOnThird": false
       },
-      "LastUpdatedUtc": "2026-05-15T00:03:13.3611359Z"
+      "LastUpdatedUtc": "2026-05-18T20:31:55.4066839Z"
     }
   ],
-  "GeneratedAtUtc": "2026-05-15T00:03:13.3612057Z"
+  "GeneratedAtUtc": "2026-05-18T20:31:55.406702Z"
 }

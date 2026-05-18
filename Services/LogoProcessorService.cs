@@ -13,7 +13,7 @@ namespace LedScoreboard.Services
     {
         private readonly ILogger<LogoProcessorService> _logger;
         private readonly ScoreboardConfig _config;
-        private const int LogoSize = 16;
+        private const int LogoSize = 20;
 
         public LogoProcessorService(ILogger<LogoProcessorService> logger, ScoreboardConfig config)
         {

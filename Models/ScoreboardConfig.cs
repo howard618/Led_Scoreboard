@@ -13,7 +13,7 @@ namespace LedScoreboard.Models
         public string DisplayUrl { get; set; } = "http://localhost:5000/update"; // where data is sent to the Raspberry Pi
         public string DataFolder { get; set; } = "scoreboard";
         public string ScoreboardJsonFile { get; set; } = "scoreboard.json";
-        public string LogoFolder { get; set; } = "logos";
+        public string LogoFolder { get; set; } = "newlogos";
        
 
     }
