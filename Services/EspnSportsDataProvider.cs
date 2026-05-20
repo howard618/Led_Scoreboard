@@ -1,192 +1,245 @@
-﻿using LedScoreboard.Interfaces;
-using LedScoreboard.Models;
 using System.Text.Json;
+using LedScoreboard.Interfaces;
+using LedScoreboard.Models;
 
-namespace LedScoreboard.Services
+namespace LedScoreboard.Services;
+
+public class EspnSportsDataProvider : ISportsDataProvider
 {
-    public class EspnSportsDataProvider : ISportsDataProvider
+    private readonly HttpClient _httpClient;
+
+    public EspnSportsDataProvider(HttpClient httpClient)
     {
-        private readonly HttpClient _httpClient;
+        _httpClient = httpClient;
+    }
 
-        public EspnSportsDataProvider(HttpClient httpClient)
+    public async Task<List<GameState>> GetGamesAsync()
+    {
+        var games = new List<GameState>();
+
+        games.AddRange(await GetLeagueGamesAsync(
+            "NFL",
+            "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"));
+
+        games.AddRange(await GetLeagueGamesAsync(
+            "MLB",
+            "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"));
+
+        games.AddRange(await GetLeagueGamesAsync(
+            "NHL",
+            "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard"));
+
+        return games;
+    }
+
+    private async Task<List<GameState>> GetLeagueGamesAsync(string league, string url)
+    {
+        var games = new List<GameState>();
+
+        using var response = await _httpClient.GetAsync(url);
+        response.EnsureSuccessStatusCode();
+
+        using var stream = await response.Content.ReadAsStreamAsync();
+
+        using JsonDocument doc = await JsonDocument.ParseAsync(stream);
+
+        JsonElement root = doc.RootElement;
+
+        if (!root.TryGetProperty("events", out JsonElement events))
         {
-            _httpClient = httpClient;
-        }
-
-        public async Task<List<GameState>> GetGamesAsync()
-        {
-            List<GameState> games = new();
-
-            games.AddRange(await GetLeagueGamesAsync(
-                "NFL",
-                "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
-            ));
-
-            games.AddRange(await GetLeagueGamesAsync(
-                "MLB",
-                "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"
-            ));
-
-            games.AddRange(await GetLeagueGamesAsync(
-                "NHL",
-                "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard"
-            ));
-
             return games;
         }
 
-        private async Task<List<GameState>> GetLeagueGamesAsync(string league, string url)
+        foreach (JsonElement game in events.EnumerateArray())
         {
-            List<GameState> games = new();
+            string gameId = game.GetProperty("id").GetString() ?? "";
 
-            string json = await _httpClient.GetStringAsync(url);
+            JsonElement competition =
+                game.GetProperty("competitions")[0];
 
-            using JsonDocument document = JsonDocument.Parse(json);
+            JsonElement competitors =
+                competition.GetProperty("competitors");
 
-            JsonElement root = document.RootElement;
+            JsonElement home =
+                competitors.EnumerateArray()
+                    .First(c => c.GetProperty("homeAway").GetString() == "home");
 
-            if (!root.TryGetProperty("events", out JsonElement events))
+            JsonElement away =
+                competitors.EnumerateArray()
+                    .First(c => c.GetProperty("homeAway").GetString() == "away");
+
+            JsonElement status =
+                competition.GetProperty("status");
+
+            JsonElement statusType =
+                status.GetProperty("type");
+
+            string state =
+                statusType.GetProperty("state").GetString() ?? "";
+
+            string period =
+                status.GetProperty("period").GetInt32().ToString();
+
+            string detailLine = "";
+
+            if (statusType.TryGetProperty("shortDetail", out JsonElement shortDetail))
             {
-                return games;
+                detailLine = shortDetail.GetString() ?? "";
             }
 
-            foreach (JsonElement gameEvent in events.EnumerateArray())
+            string clock = "";
+
+            if (status.TryGetProperty("displayClock", out JsonElement displayClock))
             {
-                string gameId = gameEvent.GetProperty("id").GetString() ?? "";
-
-                JsonElement competition = gameEvent
-                    .GetProperty("competitions")[0];
-
-                JsonElement status = gameEvent.GetProperty("status");
-
-                JsonElement statusType = status.GetProperty("type");
-
-                string state = statusType.GetProperty("state").GetString() ?? "";
-                string period = status.GetProperty("period").GetInt32().ToString();
-
-                string clock = "";
-
-                if (status.TryGetProperty("displayClock", out JsonElement displayClock))
-                {
-                    clock = displayClock.GetString() ?? "";
-                }
-
-                JsonElement competitors = competition.GetProperty("competitors");
-
-                TeamState homeTeam = new();
-                TeamState awayTeam = new();
-
-                foreach (JsonElement competitor in competitors.EnumerateArray())
-                {
-                    string homeAway = competitor.GetProperty("homeAway").GetString() ?? "";
-
-                    JsonElement team = competitor.GetProperty("team");
-
-                    string teamCode = team.GetProperty("abbreviation").GetString() ?? "";
-
-                    string logoUrl = league switch
-                    {
-                        "NFL" => $"https://a.espncdn.com/i/teamlogos/nfl/500/{teamCode.ToLower()}.png",
-                        "MLB" => $"https://a.espncdn.com/i/teamlogos/mlb/500/{teamCode.ToLower()}.png",
-                        "NHL" => $"https://a.espncdn.com/i/teamlogos/nhl/500/{teamCode.ToLower()}.png",
-                        _ => ""
-                    };
-
-                  
-                    Console.WriteLine($"TEAM: {teamCode}");
-                    Console.WriteLine($"LOGO URL: {logoUrl}");
-
-                    TeamState teamState = new TeamState
-                    {
-                        Code = team.GetProperty("abbreviation").GetString() ?? "",
-                        Name = team.GetProperty("displayName").GetString() ?? "",
-                        Score = int.TryParse(
-                            competitor.GetProperty("score").GetString(),
-                            out int score
-                        ) ? score : 0,
-
-                        LogoUrl = logoUrl,
-
-                        LogoFile = $"/scoreboard/logos/{league.ToLower()}/{teamCode}.png"
-                    };
-
-                    if (homeAway == "home")
-                    {
-                        homeTeam = teamState;
-                    }
-                    else if (homeAway == "away")
-                    {
-                        awayTeam = teamState;
-                    }
-                }
-
-                games.Add(new GameState
-                {
-                    League = league,
-                    GameId = $"{league.ToLower()}-{gameId}",
-                    Home = homeTeam,
-                    Away = awayTeam,
-                    Status = new GameStatus
-                    {
-                        Period = FormatPeriod(league, period, state),
-                        Clock = ShouldShowClock(league, state) ? clock : "",
-                        State = state.ToUpper()
-                    },
-                    LastUpdatedUtc = DateTime.UtcNow
-                });
+                clock = displayClock.GetString() ?? "";
             }
 
-            return games;
-        }
+            var homeTeam = BuildTeamState(league, home);
+            var awayTeam = BuildTeamState(league, away);
 
-        private static string FormatPeriod(string league, string period, string state)
-        {
-            // Normalize state (ESPN gives lowercase)
-            state = state.ToLower();
-
-            if (state == "pre")
+            games.Add(new GameState
             {
-                return "PRE";
-            }
+                League = league,
+                GameId = $"{league.ToLower()}-{gameId}",
 
-            if (state == "post")
-            {
-                return "FINAL";
-            }
+                Home = homeTeam,
+                Away = awayTeam,
 
-            // Live game formatting
-            return league switch
-            {
-                "NFL" => $"Q{period}",
-
-                "NHL" => period switch
+                Status = new GameStatus
                 {
-                    "1" => "1ST",
-                    "2" => "2ND",
-                    "3" => "3RD",
-                    _ => period
+                    Period = league == "MLB" && !string.IsNullOrWhiteSpace(detailLine)
+                        ? detailLine
+                        : FormatPeriod(league, period, state),
+
+                    Clock = ShouldShowClock(league, state) ? clock : "",
+
+                    State = state.ToUpper(),
+
+                    Balls = GetSituationInt(competition, "balls"),
+                    Strikes = GetSituationInt(competition, "strikes"),
+                    Outs = GetSituationInt(competition, "outs"),
+
+                    RunnerOnFirst = GetSituationBool(competition, "onFirst"),
+                    RunnerOnSecond = GetSituationBool(competition, "onSecond"),
+                    RunnerOnThird = GetSituationBool(competition, "onThird")
                 },
 
-                "MLB" => int.TryParse(period, out int inning) && inning > 0
-                    ? $"INN {inning}"
-                    : "LIVE",
-
-                _ => period
-            };
-
-
+                LastUpdatedUtc = DateTime.UtcNow
+            });
         }
 
-        private static bool ShouldShowClock(string league, string state)
+        return games;
+    }
+
+    private static TeamState BuildTeamState(string league, JsonElement competitor)
+    {
+        JsonElement team =
+            competitor.GetProperty("team");
+
+        string code =
+            team.GetProperty("abbreviation").GetString() ?? "";
+
+        Console.WriteLine($"TEAM: {code}");
+
+        string logoUrl = league switch
         {
-            state = state.ToLower();
+            "NFL" => $"https://a.espncdn.com/i/teamlogos/nfl/500/{code.ToLower()}.png",
+            "MLB" => $"https://a.espncdn.com/i/teamlogos/mlb/500/{code.ToLower()}.png",
+            "NHL" => $"https://a.espncdn.com/i/teamlogos/nhl/500/{code.ToLower()}.png",
+            _ => ""
+        };
 
-            if (state != "in")
-            {
-                return false;
-            }
+        Console.WriteLine($"LOGO URL: {logoUrl}");
 
-            return league == "NFL" || league == "NHL";
+        int score = 0;
+
+        if (competitor.TryGetProperty("score", out JsonElement scoreElement))
+        {
+            int.TryParse(scoreElement.GetString(), out score);
         }
+
+        return new TeamState
+        {
+            Code = code,
+            Name = team.GetProperty("displayName").GetString() ?? "",
+            Score = score,
+            LogoUrl = logoUrl
+        };
+    }
+
+    private static string FormatPeriod(string league, string period, string state)
+    {
+        state = state.ToLower();
+
+        if (state == "pre")
+        {
+            return "PRE";
+        }
+
+        if (state == "post")
+        {
+            return "FINAL";
+        }
+
+        if (league == "NFL")
+        {
+            return $"Q{period}";
+        }
+
+        if (league == "NBA")
+        {
+            return $"Q{period}";
+        }
+
+        if (league == "NHL")
+        {
+            return $"P{period}";
+        }
+
+        if (league == "MLB")
+        {
+            return $"INN {period}";
+        }
+
+        return period;
+    }
+
+    private static bool ShouldShowClock(string league, string state)
+    {
+        state = state.ToLower();
+
+        return state == "in";
+    }
+
+    private static int GetSituationInt(JsonElement competition, string propertyName)
+    {
+        if (!competition.TryGetProperty("situation", out JsonElement situation))
+        {
+            return 0;
+        }
+
+        if (!situation.TryGetProperty(propertyName, out JsonElement value))
+        {
+            return 0;
+        }
+
+        return value.ValueKind == JsonValueKind.Number
+            ? value.GetInt32()
+            : 0;
+    }
+
+    private static bool GetSituationBool(JsonElement competition, string propertyName)
+    {
+        if (!competition.TryGetProperty("situation", out JsonElement situation))
+        {
+            return false;
+        }
+
+        if (!situation.TryGetProperty(propertyName, out JsonElement value))
+        {
+            return false;
+        }
+
+        return value.ValueKind == JsonValueKind.True;
     }
 }
