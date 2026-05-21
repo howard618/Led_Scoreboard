@@ -8,6 +8,7 @@ echo "========================================="
 sudo apt update
 
 echo "Installing required packages..."
+
 sudo apt install -y \
 git \
 curl \
@@ -44,6 +45,7 @@ if [ ! -d "/home/admin/rpi-rgb-led-matrix" ]; then
 fi
 
 cd /home/admin/rpi-rgb-led-matrix
+
 make
 
 echo "Creating scoreboard folders..."
@@ -68,6 +70,7 @@ EOF
 echo "Restoring backend..."
 
 cd /home/admin/Led_Scoreboard
+
 /home/admin/.dotnet/dotnet restore
 
 echo "Compiling renderer..."
@@ -85,7 +88,12 @@ echo "Creating backend startup script..."
 
 cat > /home/admin/start_scoreboard_backend.sh << 'EOF'
 #!/bin/bash
+
+export DOTNET_ROOT=/home/admin/.dotnet
+export PATH=/home/admin/.dotnet:/home/admin/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 cd /home/admin/Led_Scoreboard
+
 /home/admin/.dotnet/dotnet run
 EOF
 
@@ -95,6 +103,7 @@ echo "Creating renderer startup script..."
 
 cat > /home/admin/start_scoreboard_renderer.sh << 'EOF'
 #!/bin/bash
+
 /home/admin/scoreboard_renderer
 EOF
 
@@ -142,6 +151,7 @@ EOF
 echo "Enabling services..."
 
 sudo systemctl daemon-reload
+
 sudo systemctl enable scoreboard-backend.service
 sudo systemctl enable scoreboard-renderer.service
 
@@ -154,8 +164,8 @@ echo "========================================="
 echo "INSTALL COMPLETE"
 echo "========================================="
 
-echo "Check backend:"
+echo "Backend status:"
 echo "sudo systemctl status scoreboard-backend.service"
 
-echo "Check renderer:"
+echo "Renderer status:"
 echo "sudo systemctl status scoreboard-renderer.service"
