@@ -107,7 +107,9 @@ public class EspnSportsDataProvider : ISportsDataProvider
 
                 Status = new GameStatus
                 {
-                    Period = league == "MLB" && !string.IsNullOrWhiteSpace(detailLine)
+                    Period = ((league == "MLB" || league == "NFL")
+			&& state.Equals("pre", StringComparison.OrdinalIgnoreCase)
+ 			&& !string.IsNullOrWhiteSpace(detailLine))
                         ? detailLine
                         : FormatPeriod(league, period, state),
 
@@ -173,6 +175,11 @@ public class EspnSportsDataProvider : ISportsDataProvider
 
         if (state == "pre")
         {
+	    if ((league == "MLB" || league == "NFL")
+	    && !string.IsNullOrWhiteSpace(period))
+	    {
+		return period;
+	    }
             return "PRE";
         }
 

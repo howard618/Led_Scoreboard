@@ -1,79 +1,73 @@
 #!/bin/bash
+
 set -e
 
-echo "========================================="
-echo "Installing LED Scoreboard System"
-echo "========================================="
+echo "======================================="
+echo " LED Scoreboard Installer"
+echo "======================================="
 
+REPO_DIR="/home/admin/Led_Scoreboard"
+
+echo ""
+echo "Updating system packages..."
 sudo apt update
-
-echo "Installing required packages..."
-
 sudo apt install -y \
-git \
-curl \
-wget \
-imagemagick \
-g++ \
-make \
-python3 \
-python3-pip
+    git \
+    g++ \
+    make \
+    cmake \
+    python3 \
+    python3-pip \
+    python3-pil \
+    libgraphicsmagick++-dev \
+    libwebp-dev \
+    libpng-dev \
+    libjpeg-dev \
+    fonts-dejavu-core \
+    jq
 
+echo ""
 echo "Installing .NET 8..."
 
-if ! command -v dotnet >/dev/null 2>&1; then
-    cd /home/admin
-
-    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-    chmod +x dotnet-install.sh
-
-    ./dotnet-install.sh --channel 8.0
-
-    echo 'export DOTNET_ROOT=$HOME/.dotnet' >> /home/admin/.bashrc
-    echo 'export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools' >> /home/admin/.bashrc
-
-    export DOTNET_ROOT=/home/admin/.dotnet
-    export PATH=$PATH:/home/admin/.dotnet:/home/admin/.dotnet/tools
+if [ ! -d "/home/admin/.dotnet" ]; then
+    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 8.0
 fi
 
-echo "Installing RGB LED Matrix library..."
+export DOTNET_ROOT=/home/admin/.dotnet
+export PATH=$PATH:/home/admin/.dotnet
 
-cd /home/admin
+echo ""
+echo "Cloning RGB matrix library..."
 
 if [ ! -d "/home/admin/rpi-rgb-led-matrix" ]; then
-    git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
+    git clone https://github.com/hzeller/rpi-rgb-led-matrix.git /home/admin/rpi-rgb-led-matrix
 fi
 
+echo ""
+echo "Building RGB matrix library..."
+
 cd /home/admin/rpi-rgb-led-matrix
+make -j$(nproc)
 
-make
-
-echo "Creating scoreboard folders..."
+echo ""
+echo "Creating scoreboard directories..."
 
 mkdir -p /home/admin/scoreboard
-mkdir -p /home/admin/scoreboard/pixel-logos/nfl
-mkdir -p /home/admin/scoreboard/pixel-logos/mlb
-mkdir -p /home/admin/scoreboard/pixel-logos/nhl
+mkdir -p /home/admin/scoreboard/newlogos
+mkdir -p /home/admin/scoreboard/pixel-logos
 
-echo "Creating default display config..."
+echo ""
+echo "Building C# backend..."
 
-cat > /home/admin/scoreboard/display_config.json << 'EOF'
-{
-  "mode": "teams",
-  "teams": [],
-  "leagues": ["MLB"],
-  "liveOnly": false,
-  "rotationSeconds": 10
-}
-EOF
+cd "$REPO_DIR"
 
-echo "Restoring backend..."
-
-cd /home/admin/Led_Scoreboard
+export PATH=$PATH:/home/admin/.dotnet
 
 /home/admin/.dotnet/dotnet restore
+/home/admin/.dotnet/dotnet build
 
-echo "Compiling renderer..."
+echo ""
+echo "Compiling scoreboard renderer..."
 
 g++ renderer/scoreboard_renderer.cpp \
 -I/home/admin/rpi-rgb-led-matrix/include \
@@ -84,37 +78,41 @@ g++ renderer/scoreboard_renderer.cpp \
 -lpthread \
 -o /home/admin/scoreboard_renderer
 
-echo "Creating backend startup script..."
+echo ""
+echo "Creating backend launcher..."
 
-cat > /home/admin/start_scoreboard_backend.sh << 'EOF'
+cat << 'EOF' > /home/admin/start_scoreboard_backend.sh
 #!/bin/bash
 
 export DOTNET_ROOT=/home/admin/.dotnet
-export PATH=/home/admin/.dotnet:/home/admin/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$PATH:/home/admin/.dotnet
 
 cd /home/admin/Led_Scoreboard
 
-/home/admin/.dotnet/dotnet run
+exec /home/admin/.dotnet/dotnet run
 EOF
 
 chmod +x /home/admin/start_scoreboard_backend.sh
 
-echo "Creating renderer startup script..."
+echo ""
+echo "Creating renderer launcher..."
 
-cat > /home/admin/start_scoreboard_renderer.sh << 'EOF'
+cat << 'EOF' > /home/admin/start_scoreboard_renderer.sh
 #!/bin/bash
 
-/home/admin/scoreboard_renderer
+exec /home/admin/scoreboard_renderer
 EOF
 
 chmod +x /home/admin/start_scoreboard_renderer.sh
 
-echo "Creating backend systemd service..."
+echo ""
+echo "Installing backend systemd service..."
 
 sudo tee /etc/systemd/system/scoreboard-backend.service > /dev/null << 'EOF'
 [Unit]
 Description=LED Scoreboard Backend
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
@@ -124,17 +122,21 @@ ExecStart=/home/admin/start_scoreboard_backend.sh
 Restart=always
 RestartSec=5
 
+Environment=DOTNET_ROOT=/home/admin/.dotnet
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/home/admin/.dotnet
+
 [Install]
 WantedBy=multi-user.target
 EOF
 
-echo "Creating renderer systemd service..."
+echo ""
+echo "Installing renderer systemd service..."
 
 sudo tee /etc/systemd/system/scoreboard-renderer.service > /dev/null << 'EOF'
 [Unit]
 Description=LED Scoreboard Renderer
-After=network.target scoreboard-backend.service
-Requires=scoreboard-backend.service
+After=network-online.target scoreboard-backend.service
+Wants=network-online.target
 
 [Service]
 Type=simple
@@ -148,24 +150,31 @@ RestartSec=5
 WantedBy=multi-user.target
 EOF
 
-echo "Enabling services..."
+echo ""
+echo "Reloading systemd..."
 
 sudo systemctl daemon-reload
+
+echo ""
+echo "Enabling services..."
 
 sudo systemctl enable scoreboard-backend.service
 sudo systemctl enable scoreboard-renderer.service
 
+echo ""
 echo "Starting services..."
 
 sudo systemctl restart scoreboard-backend.service
 sudo systemctl restart scoreboard-renderer.service
 
-echo "========================================="
-echo "INSTALL COMPLETE"
-echo "========================================="
-
+echo ""
+echo "======================================="
+echo " INSTALL COMPLETE"
+echo "======================================="
+echo ""
 echo "Backend status:"
-echo "sudo systemctl status scoreboard-backend.service"
+sudo systemctl --no-pager --full status scoreboard-backend.service || true
 
+echo ""
 echo "Renderer status:"
-echo "sudo systemctl status scoreboard-renderer.service"
+sudo systemctl --no-pager --full status scoreboard-renderer.service || true

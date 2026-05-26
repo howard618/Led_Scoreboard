@@ -308,12 +308,10 @@ std::string GetLogoPath(const json& team, const std::string& league) {
     std::string processedLogo = SafeString(team, "ProcessedLogoFile");
     processedLogo = ToPpmPath(ToPiPath(processedLogo));
 
-size_t pos = processedLogo.find("_20x20");
-if (pos != std::string::npos) {
-    processedLogo.replace(pos, 6, "_16x16");
-}
-
-processedLogo = ToPpmPath(ToPiPath(processedLogo));
+    size_t pos = processedLogo.find("_20x20");
+    if (pos != std::string::npos) {
+        processedLogo.replace(pos, 6, "_16x16");
+    }
 
     return processedLogo;
 }
@@ -344,7 +342,7 @@ void DrawLogoOrFallback(
     rgb_matrix::DrawText(canvas, font, x, y + 12, textColor, nullptr, code.c_str());
 }
 
-void DrawGame(Canvas* canvas, Font& font, const json& game) {
+    void DrawGame(Canvas* canvas, Font& font, const json& game) {
     canvas->Clear();
 
     std::string league = SafeString(game, "League");
@@ -356,23 +354,22 @@ void DrawGame(Canvas* canvas, Font& font, const json& game) {
 
     std::string period = SafeString(game["Status"], "Period");
     std::string clock = SafeString(game["Status"], "Clock");
+    std::string state = SafeString(game["Status"], "State");
 
     bool isMlb = ToUpper(league) == "MLB";
+    bool isNfl = ToUpper(league) == "NFL";
     bool awayBatting = isMlb && StartsWith(period, "Top");
     bool homeBatting = isMlb && StartsWith(period, "Bot");
 
     Color white(255, 255, 255);
     Color yellow(255, 210, 0);
     Color dim(55, 55, 55);
+    Color red(255, 40, 40);
 
     DrawLogoOrFallback(canvas, game["Away"], league, 0, 0, font, white);
-    DrawLogoOrFallback(canvas, game["Home"], league, 0, 14, font, white);
+    DrawLogoOrFallback(canvas, game["Home"], league, 0, 16, font, white);
 
-    std::string awayText = (awayBatting ? "*" : "") + awayCode + " " + std::to_string(awayScore);
-    std::string homeText = (homeBatting ? "*" : "") + homeCode + " " + std::to_string(homeScore);
-
-    rgb_matrix::DrawText(canvas, font, 20, 12, white, nullptr, awayText.c_str());
-    rgb_matrix::DrawText(canvas, font, 20, 29, white, nullptr, homeText.c_str());
+    std::string upperState = ToUpper(state);
 
     if (isMlb) {
         int outs = SafeInt(game["Status"], "Outs");
@@ -381,26 +378,66 @@ void DrawGame(Canvas* canvas, Font& font, const json& game) {
         bool runnerOnSecond = SafeBool(game["Status"], "RunnerOnSecond");
         bool runnerOnThird = SafeBool(game["Status"], "RunnerOnThird");
 
-        rgb_matrix::DrawText(canvas, font, 78, 10, yellow, nullptr, period.c_str());
+        if (upperState != "IN" && upperState != "LIVE") {
+            rgb_matrix::DrawText(canvas, font, 22, 12, white, nullptr, awayCode.c_str());
+            rgb_matrix::DrawText(canvas, font, 22, 29, white, nullptr, homeCode.c_str());
 
-        if (ToUpper(period) == "PRE") {
-            rgb_matrix::DrawText(canvas, font, 98, 24, white, nullptr, "MLB");
+            rgb_matrix::DrawText(canvas, font, 50, 12, yellow, nullptr, period.c_str());
+            rgb_matrix::DrawText(canvas, font, 70, 29, red, nullptr, "MLB");
         }
         else {
             std::string outsText = std::to_string(outs) + " OUT";
             if (outs != 1) {
                 outsText += "S";
             }
-	    Color red(255,40,40);
+
+            std::string awayText = awayCode + (awayBatting ? "*" : "") + " " + std::to_string(awayScore);
+            std::string homeText = homeCode + (homeBatting ? "*" : "") + " " + std::to_string(homeScore);
+
+            rgb_matrix::DrawText(canvas, font, 22, 12, white, nullptr, awayText.c_str());
+            rgb_matrix::DrawText(canvas, font, 22, 29, white, nullptr, homeText.c_str());
+
             DrawBase(canvas, 72, 10, runnerOnSecond, red, dim);
             DrawBase(canvas, 63, 17, runnerOnThird, red, dim);
             DrawBase(canvas, 81, 17, runnerOnFirst, red, dim);
             DrawBase(canvas, 72, 24, false, white, dim);
 
-            rgb_matrix::DrawText(canvas, font, 94, 24, white, nullptr, outsText.c_str());
+            rgb_matrix::DrawText(canvas, font, 88, 12, yellow, nullptr, period.c_str());
+            rgb_matrix::DrawText(canvas, font, 86, 29, white, nullptr, outsText.c_str());
+        }
+    }
+    else if (isNfl) {
+        if (upperState != "IN" && upperState != "LIVE") {
+            rgb_matrix::DrawText(canvas, font, 24, 12, white, nullptr, awayCode.c_str());
+            rgb_matrix::DrawText(canvas, font, 24, 29, white, nullptr, homeCode.c_str());
+
+            rgb_matrix::DrawText(canvas, font, 50, 12, yellow, nullptr, period.c_str());
+            rgb_matrix::DrawText(canvas, font, 80, 29, red, nullptr, "NFL");
+        }
+        else {
+            rgb_matrix::DrawText(canvas, font, 24, 12, white, nullptr,
+                (awayCode + " " + std::to_string(awayScore)).c_str());
+
+            rgb_matrix::DrawText(canvas, font, 24, 29, white, nullptr,
+                (homeCode + " " + std::to_string(homeScore)).c_str());
+
+            rgb_matrix::DrawText(canvas, font, 88, 12, yellow, nullptr, period.c_str());
+
+            if (!clock.empty() && clock != "0:00") {
+                rgb_matrix::DrawText(canvas, font, 74, 29, white, nullptr, clock.c_str());
+            }
+            else {
+                rgb_matrix::DrawText(canvas, font, 82, 29, white, nullptr, "NFL");
+            }
         }
     }
     else {
+        rgb_matrix::DrawText(canvas, font, 24, 12, white, nullptr,
+            (awayCode + " " + std::to_string(awayScore)).c_str());
+
+        rgb_matrix::DrawText(canvas, font, 24, 29, white, nullptr,
+            (homeCode + " " + std::to_string(homeScore)).c_str());
+
         rgb_matrix::DrawText(canvas, font, 86, 10, yellow, nullptr, period.c_str());
 
         if (!clock.empty() && clock != "0:00") {
@@ -418,7 +455,9 @@ void DrawGame(Canvas* canvas, Font& font, const json& game) {
               << homeCode << " " << homeScore
               << " "
               << period << "\n";
-}
+}    
+
+
 
 void DrawMessage(Canvas* canvas, Font& font, const std::string& line1, const std::string& line2) {
     canvas->Clear();
